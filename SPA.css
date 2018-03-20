@@ -1,3 +1,4 @@
+/*@sophistique_chat code*/
 body {
   overflow: scroll;
 }
@@ -14,6 +15,7 @@ box-shadow: 0px 8px 49px -4px rgba(0,0,0,0.49);
 }
 .logo {
   border: 1px solid white;
+  opacity:0.6;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -22,8 +24,9 @@ box-shadow: 0px 8px 49px -4px rgba(0,0,0,0.49);
   margin-bottom: 10px;
 }
 .mainContent {
-  height: 1000px;
-  width: auto;
+  padding-top:90px;
+ 
+ box-sizing: border-box;
   background-color: white;
 }
 
@@ -50,8 +53,705 @@ box-shadow: 0px -10px 39px -15px rgba(0,0,0,0.49);
 }
 .copyright {
   color: white;
+  opacity:0.6;
   font-family: "Poiret One";
   margin-top: 10px;
   padding-top: 15px;
   padding-left: 15px;
+}
+/*@Brendan Pettis code*/
+#left-side{
+  margin-top:50px;
+}
+
+/* Progrss bar */
+.progress-bar {
+  background-color: #e9ecef;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  height: 1rem;
+}
+.progress {
+  background-color: #00b5e7;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.blue {
+  background-color: rgba(2,204,186,.8);
+}
+
+.orange {
+  background-color: #FF8C00;
+}
+
+.yellow {
+  background-color: #e7e200;
+}
+
+.pink{
+  background-color: #FFC0CB;
+}
+/*@Matthew Cranford code*/
+/* dummy bars  */
+ /* .dummy-bars {
+  position: relative;
+}
+.bar {
+  width: 100%;
+  background-color: grey;
+  margin-bottom: 1rem;
+}
+.progress {
+  height: 30px;
+  background-color: green;
+}
+#overall {
+  width: 1%;
+}
+#html {
+  width: 1%;
+}
+#css {
+  width: 1%;
+}
+#js {
+  width: 1%;
+}
+#projects {
+  width: 1%;
+}  */
+/* end dummy bars */ 
+/*@Brendan Pettis code*/
+#left-side{
+  margin-top:50px;
+}
+
+/* Progrss bar */
+.progress-bar {
+  background-color: #e9ecef;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  height: 1rem;
+}
+.progress {
+  background-color: #00b5e7;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.blue {
+  background-color: rgba(2,204,186,.8);
+}
+
+.orange {
+  background-color: #FF8C00;
+}
+
+.yellow {
+  background-color: #e7e200;
+}
+
+.pink{
+  background-color: #FFC0CB;
+}
+/*@Angel Couso code*/
+* {
+  margin: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* Pading and Margin */
+.padding-0 {
+  padding: 0;
+}
+.padding-1 {
+  padding: .25rem;
+}
+.padding-2 {
+  padding: .5rem;
+}
+.padding-3 {
+  padding: 1rem;
+}
+.padding-4 {
+  padding: 1.5rem;
+}
+.padding-5 {
+  padding: 2.3rem;
+}
+.padding-top-0 {
+  padding-top: 0;
+}
+.padding-top-1 {
+  padding-top: .25rem;
+}
+.padding-top-2 {
+  padding-top: .5rem;
+}
+.padding-top-3 {
+  padding-top: 1rem;
+}
+.padding-top-4 {
+  padding-top: 1.5rem;
+}
+.padding-top-5 {
+  padding-top: 2.3rem;
+}
+.padding-bottom-0 {
+  padding-bottom: 0;
+}
+.padding-bottom-1 {
+  padding-bottom: .25rem;
+}
+.padding-bottom-2 {
+  padding-bottom: .5rem;
+}
+.padding-bottom-3 {
+  padding-bottom: 1rem;
+}
+.padding-bottom-4 {
+  padding-bottom: 1.5rem;
+}
+.padding-bottom-5 {
+  padding-bottom: 2.3rem;
+}
+.padding-left-0 {
+  padding-left: 0;
+}
+.padding-left-1 {
+  padding-left: .25rem;
+}
+.padding-left-2 {
+  padding-left: .5rem;
+}
+.padding-left-3 {
+  padding-left: 1rem;
+}
+.padding-left-4 {
+  padding-left: 1.5rem;
+}
+.padding-left-5 {
+  padding-left: 2.3rem;
+}
+.padding-right-0 {
+  padding-right: 0;
+}
+.padding-right-1 {
+  padding-right: .25rem;
+}
+.padding-right-2 {
+  padding-right: .5rem;
+}
+.padding-right-3 {
+  padding-right: 1rem;
+}
+.padding-right-4 {
+  padding-right: 1.5rem;
+}
+.padding-right-5 {
+  padding-right: 2.3rem;
+}
+.padding-x-0 {
+  padding-left: 0;
+  padding-right: 0;
+}
+.padding-x-1 {
+  padding-left: .25rem;
+  padding-right: .25rem;
+}
+.padding-x-2 {
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
+.padding-x-3 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.padding-x-4 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.padding-x-5 {
+  padding-left: 2.3rem;
+  padding-right: 2.3rem;
+}
+.padding-y-0 {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.padding-y-1 {
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+}
+.padding-y-2 {
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+.padding-y-3 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.padding-y-4 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+.padding-y-5 {
+  padding-top: 2.3rem;
+  padding-bottom: 2.3rem;
+}
+
+/* ------------------------------------------------------ */
+
+.margin-0 {
+  margin: 0;
+}
+.margin-1 {
+  margin: .25rem;
+}
+.margin-2 {
+  margin: .5rem;
+}
+.margin-3 {
+  margin: 1rem;
+}
+.margin-4 {
+  margin: 1.5rem;
+}
+.margin-5 {
+  margin: 2.3rem;
+}
+.margin-top-0 {
+  margin-top: 0;
+}
+.margin-top-1 {
+  margin-top: .25rem;
+}
+.margin-top-2 {
+  margin-top: .5rem;
+}
+.margin-top-3 {
+  margin-top: 1rem;
+}
+.margin-top-4 {
+  margin-top: 1.5rem;
+}
+.margin-top-5 {
+  margin-top: 2.3rem;
+}
+.margin-bottom-0 {
+  margin-bottom: 0;
+}
+.margin-bottom-1 {
+  margin-bottom: .25rem;
+}
+.margin-bottom-2 {
+  margin-bottom: .5rem;
+}
+.margin-bottom-3 {
+  margin-bottom: 1rem;
+}
+.margin-bottom-4 {
+  margin-bottom: 1.5rem;
+}
+.margin-bottom-5 {
+  margin-bottom: 2.3rem;
+}
+.margin-left-0 {
+  margin-left: 0;
+}
+.margin-left-1 {
+  margin-left: .25rem;
+}
+.margin-left-2 {
+  margin-left: .5rem;
+}
+.margin-left-3 {
+  margin-left: 1rem;
+}
+.margin-left-4 {
+  margin-left: 1.5rem;
+}
+.margin-left-5 {
+  margin-left: 2.3rem;
+}
+.margin-right-0 {
+  margin-right: 0;
+}
+.margin-right-1 {
+  margin-right: .25rem;
+}
+.margin-right-2 {
+  margin-right: .5rem;
+}
+.margin-right-3 {
+  margin-right: 1rem;
+}
+.margin-right-4 {
+  margin-right: 1.5rem;
+}
+.margin-right-5 {
+  margin-right: 2.3rem;
+}
+.margin-x-0 {
+  margin-left: 0;
+  margin-right: 0;
+}
+.margin-x-1 {
+  margin-left: .25rem;
+  margin-right: .25rem;
+}
+.margin-x-2 {
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
+.margin-x-3 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.margin-x-4 {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+.margin-x-5 {
+  margin-left: 2.3rem;
+  margin-right: 2.3rem;
+}
+.margin-y-0 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.margin-y-1 {
+  margin-top: .25rem;
+  margin-bottom: .25rem;
+}
+.margin-y-2 {
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+.margin-y-3 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.margin-y-4 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.margin-y-5 {
+  margin-top: 2.3rem;
+  margin-bottom: 2.3rem;
+}
+/* ------------------------------------------------------ */
+.margin-x-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.margin-y-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.margin-top-auto {
+  margin-top: auto;
+}
+.margin-bottom-auto {
+  margin-bottom: auto;
+}
+.margin-left-auto {
+  margin-left: auto;
+}
+.margin-right-auto {
+  margin-right: auto;
+}
+
+/* ------------------------------------------------------ */
+
+
+
+
+/* FlexBox Grid */
+.display-flex {
+  display: -webkit-box!important;
+  display: -ms-flexbox!important;
+  display: flex!important;
+}
+
+
+/* Flexbox direction */
+.flex-row {
+  -webkit-box-orient: horizontal!important;
+  -webkit-box-direction: normal!important;
+  -ms-flex-direction: row!important;
+  flex-direction: row!important;
+}
+.flex-row-reverse {
+  -webkit-box-orient: horizontal!important;
+  -webkit-box-direction: reverse!important;
+  -ms-flex-direction: row!important;
+  flex-direction: row-reverse!important;
+}
+.flex-col {
+  -webkit-box-orient: vertical!important;
+  -webkit-box-direction: normal!important;
+  -ms-flex-direction: column!important;
+  flex-direction: column!important;
+}
+.flex-col-reverse {
+  -webkit-box-orient: vertical!important;
+  -webkit-box-direction: reverse!important;
+  -ms-flex-direction: column-reverse!important;
+  flex-direction: column-reverse!important;
+}
+
+
+/* Flexbox Justify Content */
+.flex-justify-content-start {
+  -webkit-box-pack: start!important;
+  -ms-flex-pack: start!important;
+  justify-content: flex-start!important;
+}
+.flex-justify-content-end {
+  -webkit-box-pack: end!important;
+  -ms-flex-pack: end!important;
+  justify-content: flex-end!important;
+}
+.flex-justify-content-center {
+  -webkit-box-pack: center!important;
+  -ms-flex-pack: center!important;
+  justify-content: center!important;
+}
+.flex-justify-content-between {
+  -webkit-box-pack: justify!important;
+  -ms-flex-pack: justify!important;
+  justify-content: space-between!important;
+}
+.flex-justify-content-around {
+  -ms-flex-pack: distribute!important;
+  justify-content: space-around!important;
+}
+
+
+/* Flexbox Align Items */
+.flex-align-items-start {
+  -webkit-box-align: start!important;
+  -ms-flex-align: start!important;
+  align-items: flex-start!important;
+}
+.flex-align-items-end {
+  -webkit-box-align: end!important;
+  -ms-flex-align: end!important;
+  align-items: flex-end!important;
+}
+.flex-align-items-center {
+  -webkit-box-align: center!important;
+  -ms-flex-align: center!important;
+  align-items: center!important;
+}
+.flex-align-items-baseline {
+  -webkit-box-align: baseline!important;
+  -ms-flex-align: baseline!important;
+  align-items: baseline!important;
+}
+.flex-align-items-stretch {
+  -webkit-box-align: stretch!important;
+  -ms-flex-align: stretch!important;
+  align-items: stretch!important;
+}
+
+
+/* Flexbox Align Self */
+.flex-align-self-start {
+  -ms-flex-item-align: start!important;
+  align-self: flex-start!important;
+}
+.flex-align-self-end {
+  -ms-flex-item-align: end!important;
+  align-self: flex-end!important;
+}
+.flex-align-self-center {
+  -ms-flex-item-align: center!important;
+  align-self: center!important;
+}
+.flex-align-self-baseline {
+  -ms-flex-item-align: baseline!important;
+  align-self: baseline!important;
+}
+.flex-align-self-stretch {
+  -ms-flex-item-align: stretch!important;
+  align-self: stretch!important;
+}
+
+
+/* Flexbox Wrap */
+.flex-nowrap {
+  -ms-flex-wrap: nowrap!important;
+  flex-wrap: nowrap!important;
+}
+.flex-wrap {
+  -ms-flex-wrap: wrap!important;
+  flex-wrap: wrap!important;
+}
+.flex-wrap-reverse {
+  -ms-flex-wrap: wrap-reverse!important;
+  flex-wrap: wrap-reverse!important;
+}
+
+/* ------------------------------------------------------ */
+
+/* Grid System */
+.col-width-1 {
+  width: 10%;
+}
+.col-width-2 {
+  width: 20%;
+}
+.col-width-3 {
+  width: 30%;
+}
+.col-width-4 {
+  width: 40%;
+}
+.col-width-5 {
+  width: 50%;
+}
+.col-width-6 {
+  width: 60%;
+}
+.col-width-7 {
+  width: 70%;
+}
+.col-width-8 {
+  width: 80%;
+}
+.col-width-9 {
+  width: 90%;
+}
+.col-width-10 {
+  width: 100%;
+}
+
+/* ------------------------------------------------------ */
+
+/* Buttons and Anchors */
+button, .button {
+   border: 1px solid #03a3d0;
+   background-color: #02b3e4;
+   color: #232e39;
+   padding: 0.5em 1em;
+   font-weight: 500;
+   border-radius: 2px;
+   box-shadow: inset 0 0 4px #03a3d0;
+   transition: .2s;
+   display: inline-block;
+   text-decoration: none;
+   text-align: center;
+ }
+ button:hover, .button:hover {
+   background-color: #03a3d0;
+   color: #fff;
+   /* border-color: ; */
+   box-shadow: none;
+   transition: 0.2s;
+   cursor: pointer;
+ }
+
+/* ------------------------------------------------------ */
+
+
+/* Progrss bar */
+.progress-bar {
+  background-color: #e9ecef;;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  height: 1rem;
+}
+.progress {
+  background-color: #00b5e7;
+  text-align: center;
+  border-radius: 3px;
+  border: none !important;
+}
+/* we can add more colors but i'll put in here some examples */
+.error {
+  background-color: #ff1e1e;
+  border-color: #db1a1a;
+  box-shadow: inset 0 0 4px #db1a1a;
+}
+button.error:hover, .button.error:hover {
+  background-color: #db1a1a;
+}
+.waiting {
+  background-color: #f9d800;
+  border-color: #e8c900;
+  box-shadow: inset 0 0 4px #e8c900;
+}
+button.waiting:hover, .button.waiting:hover {
+  background-color: #e8c900;
+}
+.success {
+  background-color: #16cc52;
+  border-color: #14ba4b;
+  box-shadow: inset 0 0 4px #14ba4b;
+}
+button.success:hover, .button.success:hover {
+  background-color: #14ba4b;
+}
+.project_header{
+  padding:10px;
+  display:flex;
+}
+.tasks{
+  float:right;
+  width:70%;
+  padding:20px;
+  border:1px solid #cecece;
+}
+#left-side{
+  width:100%!important;
+}
+.taskListHeader{
+  text-align:center;
+}
+.tasks_progress{
+  padding:20px;
+  margin-left:20px;
+  width:30%;
+  border:1px solid #cecece;
+ }
+.w3-third{
+  width:100%!important;
+}
+.dummy-bars{
+ padding:10px;
+  padding:20px;
+}
+.progress-bar{
+  height:2rem;
+}
+.mrgT10{
+  margin-top:10px!important;
+}
+.mrgB10{
+  margin-bottom:10px!important;
+}
+.mrgTB5{
+  margin-top:5px;
+  margin-bottom:5px;
+}
+.blue {
+  background-color: rgba(2,204,186,.8);
+}
+
+.orange {
+  background-color: #FF8C00;
+}
+
+.yellow {
+  background-color: #e7e200;
+}
+
+.pink{
+  background-color: #FFC0CB;
 }
