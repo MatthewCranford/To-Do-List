@@ -259,15 +259,15 @@ $(function() {
   function updateProgress() { 
       
       courseProgress.html["completed"] = 0;
-      console.log("test",courseProgress["html"]["completed"]);
+      // console.log("test",courseProgress["html"]["completed"]);
       data = SBP.Data.checkListMap;
-      console.log(data);
+      // console.log(data);
       for (item in data) {
         // console.log(data[item]);
         if(data[item].group == "html" && data[item].isChecked == true) {
             courseProgress.html["completed"] += 1;
             updateBar($htmlBar);
-            console.log(courseProgress.html["completed"])
+            // console.log(courseProgress.html["completed"])
         }
         // else if(data[item].group == "html" && data[item].isChecked == false) {
         //     courseProgress.html["completed"] -= 1;
@@ -278,12 +278,12 @@ $(function() {
       }
   }
 
-  console.log();
+
   
 
-  $("li input").change(function() {
-      updateProgress();
-  })
+  // $("li input").change(function() {
+  //     updateProgress();
+  // })
 
   // fetches bar's category
   function getCategory(bar) {
@@ -334,4 +334,27 @@ $(function() {
   }
   updateAllBars(bars);
 
+  $(".lessonTitle").children("input").change(function() {
+    
+    let lessonID = $(this).attr("id");
+    console.log(lessonID);
+    console.log("HEYY",SBP.Data.checkListMap[lessonID]);
+
+    if (SBP.Data.checkListMap[lessonID].isChecked == true) {
+      console.log("HEEYY LISTEN", $(this))
+      $(this).siblings("ul").children("li").each(function(index,value) {
+        // WE HAVE TO GO DEEPER!
+        let exerciseID = $(this).attr("id");
+        console.log($(this));
+      })
+    }
+
+
+    // SBP.Data.checkListMap[$(this).attr("id")].isChecked = "cats";
+ 
+    
+  });
+
+  console.log(SBP.Data.checkListMap);
+window.localStorage.clear();
                       
