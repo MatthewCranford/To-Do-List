@@ -10,6 +10,7 @@ $(function() {
     $(this).addClass("active");
     $(".tabs-nav").css("border-bottom-color", $(this).css("background-color"));
   });
+
   //@Sachin and @Steve Prager code//
   /* 
     * Copyright 2018 Study Buddy
@@ -242,20 +243,47 @@ $(function() {
 
   // user's course progress
   let courseProgress = {
-    overall: {"completed": 127, "total": 153},
-    html: {"completed": 50, "total": 50},
-    css: {"completed": 50, "total": 50},
-    javascript: {"completed": 25, "total": 50},
-    jquery: {"completed": 25, "total": 50},
-    projects: {"completed": 2, "total": 3}
+    overall: {"completed": 0, "total": $("li input[data-category-type]").length},
+    html: {"completed": 0, "total": $("li input[data-category-type='html']").length},
+    css: {"completed": 0, "total": $("li input[data-category-type='css']").length},
+    javascript: {"completed": 0, "total": $("li input[data-category-type='javascript']").length},
+    jquery: {"completed": 0, "total": $("li input[data-category-type='jQuery']").length},
+    projects: {"completed": 0, "total": $("li input[data-category-type='project']").length}
   }
-  console.log(courseProgress["overall"]);
+
+ 
+  
     
 
   // update progress
   function updateProgress() { 
       
+      courseProgress.html["completed"] = 0;
+      console.log("test",courseProgress["html"]["completed"]);
+      data = SBP.Data.checkListMap;
+      console.log(data);
+      for (item in data) {
+        // console.log(data[item]);
+        if(data[item].group == "html" && data[item].isChecked == true) {
+            courseProgress.html["completed"] += 1;
+            updateBar($htmlBar);
+            console.log(courseProgress.html["completed"])
+        }
+        // else if(data[item].group == "html" && data[item].isChecked == false) {
+        //     courseProgress.html["completed"] -= 1;
+        //     updateBar($htmlBar);
+        //     console.log(courseProgress.html["completed"])
+        // }
+        
+      }
   }
+
+  console.log();
+  
+
+  $("li input").change(function() {
+      updateProgress();
+  })
 
   // fetches bar's category
   function getCategory(bar) {
@@ -283,7 +311,6 @@ $(function() {
   }
 
   function updateBar(bar) {
-      console.log(bar);
     let category = getCategory(bar);
     let width = 0; // bar progress
     let time = setInterval(fillBar, 20); // set animation speed
