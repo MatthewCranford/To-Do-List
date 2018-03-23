@@ -1,16 +1,18 @@
 body {
   overflow: scroll;
+  height: 100%;
+  box-sizing: border-box;
 }
 .header {
   background-color: #02b7e9;
   position: absolute;
   width: 100%;
   height: 85px;
-  margin-top: -10px;
-   opacity:0.8;
-  -webkit-box-shadow: 0px 8px 49px -4px rgba(0,0,0,0.49);
--moz-box-shadow: 0px 8px 49px -4px rgba(0,0,0,0.49);
-box-shadow: 0px 8px 49px -4px rgba(0,0,0,0.49);
+  margin: -10px;
+  opacity: 0.8;
+  -webkit-box-shadow: 0px 8px 39px -4px rgba(0, 0, 0, 0.49);
+  -moz-box-shadow: 0px 8px 39px -4px rgba(0, 0, 0, 0.49);
+  box-shadow: -10px 6px 39px -5px rgba(0, 0, 0, 0.49);
 }
 .logo {
   border: 1px solid white;
@@ -22,79 +24,477 @@ box-shadow: 0px 8px 49px -4px rgba(0,0,0,0.49);
   margin-bottom: 10px;
 }
 .mainContent {
-  height: 1000px;
-  width: auto;
+  justify-content: space-between;
+  padding-top: 100px;
+  padding-bottom: 5px;
   background-color: white;
+  display: grid;
+  grid-gap: 35px;
+  grid-template-columns: repeat(2, 1fr);
+  color: white;
+  min-height: 100%;
 }
+.tabs,
+.list {
+  display: flex;
+  justify-content: space-between;
+  height: 750px;
+  overflow: auto;
+  padding-left: 25px;
+  background-color: white;
+  opacity: 0.8;
+  box-shadow: 2px 2px 19px 0px rgba(0, 0, 0, 0.49);
+  padding: 8px;
+}
+/* Document scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+/* Scrollable element */
 
-.section {
-position:relative;
-  padding-left: 50px;
-  padding-top: 150px;
-  font-family: "Poiret One";
-  font-size: 35px;
-  margin-top: 10px;
-  font-color: black;
-  border-bottom: 1px solid black;
-  width:560px;
-  margin-left:225px;
-}
 .footer {
+  clear: both;
+  position: relative;
+  height: 35px;
+  margin-bottom: -10px;
+  z-index: 10;
+  height: 3em;
+  margin-top: 0em;
   background-color: #02b7e9;
-  opacity:0.8;
-  width: auto;
-  height: 50px;
-  -webkit-box-shadow: 0px -10px 39px -15px rgba(0,0,0,0.49);
--moz-box-shadow: 0px -10px 39px -15px rgba(0,0,0,0.49);
-box-shadow: 0px -10px 39px -15px rgba(0,0,0,0.49);
+  opacity: 0.8;
+  -webkit-box-shadow: 0px -10px 39px -15px rgba(0, 0, 0, 0.49);
+  -moz-box-shadow: 0px -10px 39px -15px rgba(0, 0, 0, 0.49);
+  box-shadow: 0px -10px 39px -15px rgba(0, 0, 0, 0.49);
 }
 .copyright {
   color: white;
+  opacity: 0.8;
   font-family: "Poiret One";
   margin-top: 10px;
   padding-top: 15px;
   padding-left: 15px;
+  position: inherit;
+}
+/*@Angel Couso tabs model*/
+* {
+  margin: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+/* Pading and Margin */
+
+/* ------------------------------------------------------ */
+
+/* FlexBox Grid */
+.display-flex {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+/* Flexbox direction */
+.flex-row {
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: normal !important;
+  -ms-flex-direction: row !important;
+  flex-direction: row !important;
+}
+.flex-row-reverse {
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: reverse !important;
+  -ms-flex-direction: row !important;
+  flex-direction: row-reverse !important;
+}
+.flex-col {
+  -webkit-box-orient: vertical !important;
+  -webkit-box-direction: normal !important;
+  -ms-flex-direction: column !important;
+  flex-direction: column !important;
+}
+.flex-col-reverse {
+  -webkit-box-orient: vertical !important;
+  -webkit-box-direction: reverse !important;
+  -ms-flex-direction: column-reverse !important;
+  flex-direction: column-reverse !important;
+}
+
+/* Flexbox Justify Content */
+.flex-justify-content-start {
+  -webkit-box-pack: start !important;
+  -ms-flex-pack: start !important;
+  justify-content: flex-start !important;
+}
+.flex-justify-content-end {
+  -webkit-box-pack: end !important;
+  -ms-flex-pack: end !important;
+  justify-content: flex-end !important;
+}
+.flex-justify-content-center {
+  -webkit-box-pack: center !important;
+  -ms-flex-pack: center !important;
+  justify-content: center !important;
+}
+.flex-justify-content-between {
+  -webkit-box-pack: justify !important;
+  -ms-flex-pack: justify !important;
+  justify-content: space-between !important;
+}
+.flex-justify-content-around {
+  -ms-flex-pack: distribute !important;
+  justify-content: space-around !important;
+}
+
+/* Flexbox Align Items */
+.flex-align-items-start {
+  -webkit-box-align: start !important;
+  -ms-flex-align: start !important;
+  align-items: flex-start !important;
+}
+.flex-align-items-end {
+  -webkit-box-align: end !important;
+  -ms-flex-align: end !important;
+  align-items: flex-end !important;
+}
+.flex-align-items-center {
+  -webkit-box-align: center !important;
+  -ms-flex-align: center !important;
+  align-items: center !important;
+}
+.flex-align-items-baseline {
+  -webkit-box-align: baseline !important;
+  -ms-flex-align: baseline !important;
+  align-items: baseline !important;
+}
+.flex-align-items-stretch {
+  -webkit-box-align: stretch !important;
+  -ms-flex-align: stretch !important;
+  align-items: stretch !important;
+}
+/* Flexbox Align Self */
+.flex-align-self-start {
+  -ms-flex-item-align: start !important;
+  align-self: flex-start !important;
+}
+.flex-align-self-end {
+  -ms-flex-item-align: end !important;
+  align-self: flex-end !important;
+}
+.flex-align-self-center {
+  -ms-flex-item-align: center !important;
+  align-self: center !important;
+}
+.flex-align-self-baseline {
+  -ms-flex-item-align: baseline !important;
+  align-self: baseline !important;
+}
+.flex-align-self-stretch {
+  -ms-flex-item-align: stretch !important;
+  align-self: stretch !important;
+}
+
+/* Flexbox Wrap */
+.flex-nowrap {
+  -ms-flex-wrap: nowrap !important;
+  flex-wrap: nowrap !important;
+}
+.flex-wrap {
+  -ms-flex-wrap: wrap !important;
+  flex-wrap: wrap !important;
+}
+.flex-wrap-reverse {
+  -ms-flex-wrap: wrap-reverse !important;
+  flex-wrap: wrap-reverse !important;
+}
+
+/* ------------------------------------------------------ */
+
+/* Grid System */
+
+/* ------------------------------------------------------ */
+
+/* Buttons and Anchors */
+button,
+.button {
+  border: 1px solid #026f8d;
+  background-color: #0280a4;
+  color: #fff;
+  padding: 0.5em 1em;
+  font-weight: 500;
+  border-radius: 2px;
+  box-shadow: inset 0 0 4px #026f8d;
+  transition: 0.2s;
+  display: inline-block;
+  text-align: center;
+}
+button:hover,
+.button:hover {
+  background-color: #026f8d;
+  color: #fff;
+  border-color: ;
+  box-shadow: none;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+/* ------------------------------------------------------ */
+
+/* Tabs Panels */
+.tabs-nav {
+  padding: 0;
+  border-bottom: 2px solid #f9d800;
+}
+.tabs-nav li {
+  list-style: none;
+  display: inline-block;
+}
+.tabs-nav a {
+  padding: 0.75rem;
+  display: inline-block;
+  background-color: #64788a;
+  color: #fff;
+  margin-right: 2px;
+}
+.tabs-nav a:hover {
+  background: #778ea2;
+  cursor: pointer;
+}
+.tabs-nav li:first-child a {
+  border-top-left-radius: 5px;
+}
+.tabs-nav li:last-child a {
+  border-top-right-radius: 5px;
+}
+.tabs-nav a.active {
+  padding: 0.9rem;
+  border-radius: 5px 5px 0 0;
+}
+.panels {
+  display: none;
+  min-height: 200px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 0.8rem;
+}
+.panels.active {
+  display: block;
+}
+
+/* ------------------------------------------------------ */
+
+/* Progrss bar */
+.progress-bar {
+  background-color: #e9ecef;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  height: 2rem;
+}
+.progress {
+  background-color: #00b5e7;
+  text-align: center;
+  border-radius: 3px;
+  border: none !important;
+}
+/* we can add more colors but i'll put in here some examples */
+.primary,
+.active[data-class-ref="primary"] {
+  background-color: #0280a4;
+  border-color: #026f8d;
+  box-shadow: inset 0 0 4px #026f8d;
+}
+.active[data-class-ref="primary"]:hover {
+  background-color: #0280a4;
+}
+button.primary:hover,
+.button.primary:hover {
+  background-color: #026f8d;
+}
+.secondary,
+.active[data-class-ref="secondary"] {
+  background-color: #9742ff;
+  border-color: #aa00ff;
+  box-shadow: inset 0 0 4px #aa00ff;
+}
+.active[data-class-ref="secondary"]:hover {
+  background-color: #9742ff;
+}
+button.secondary:hover,
+.button.secondary:hover {
+  background-color: #aa00ff;
+}
+.error,
+.active[data-class-ref="error"] {
+  background-color: #e80243;
+  border-color: #d0013c;
+  box-shadow: inset 0 0 4px #d0013c;
+}
+.active[data-class-ref="error"]:hover {
+  background-color: #e80243;
+}
+button.error:hover,
+.button.error:hover {
+  background-color: #d0013c;
+}
+.waiting,
+.active[data-class-ref="waiting"] {
+  background-color: #c85000;
+  border-color: #b95c00;
+  box-shadow: inset 0 0 4px #b95c00;
+}
+.active[data-class-ref="waiting"]:hover {
+  background-color: #c85000;
+}
+button.waiting:hover,
+.button.waiting:hover {
+  background-color: #b95c00;
+}
+.success,
+.active[data-class-ref="success"] {
+  background-color: #02835e;
+  border-color: #028378;
+  box-shadow: inset 0 0 4px #028378;
+}
+.active[data-class-ref="success"]:hover {
+  background-color: #02835e;
+}
+button.success:hover,
+.button.success:hover {
+  background-color: #028378;
+}
+/*@sophistique_chat add-ons to the tabs*/
+#tabs {
+  width: 100%;
+  height: 100%;
+  padding-top: 45px;
+  margin-left: -100px;
+}
+.panels {
+  overflow: auto;
+  padding: 10px;
+}
+/*@Sachin and @Steve Prager code*/
+.courseListHeader {
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  
 }
 
 .courseList {
+  font-family: "Open Sans", sans-serif;
   list-style-type: none;
+  font-size: 10pt;
+  font-weight: bold;
+  line-height: 1.9;
+  color:#8692A0;
 }
 
-.lessonList {
+.exerciseList {
+  font-family: "Roboto", sans-serif;
+  font-size: 10pt;
   list-style-type: none;
+  font-weight: normal;
 }
 
+/* CHECK BOX STYLING NOTE
+Unfortunately, default checkboxes cannot be styled. Therefore, we need to hide originals and create new boxes on top of them.
+*/
 
-
-/* dummy bars  */
-.dummy-bars {
-  position: relative;
-  padding-top: 6rem;
+.checkBox {
+  position: absolute;
+  z-index: -1000;
+  left: -1000px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
 }
-.bar {
-  width: 100%;
-  background-color: grey;
-  margin-bottom: 1rem;
-  text-align: center;
-  line-height: 2;
+
+.checkBox + label.checkBoxLabel {
+  padding-left: 30px;
+  height: 25px;
+  display: inline-block;
+  line-height: 25px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  font-size: 15px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.checkBox:checked + label.checkBoxLabel {
+  background-position: 0 -25px;
+  font-style: italic;
+  color: #a9a9a9;
+}
+
+label.checkBoxLabel {
+  margin-top:20px;
+  background-image: url(http://csscheckbox.com/checkboxes/u/csscheckbox_391ce065f36b1460c4845fa9b5173fba.png);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/*@Brendan Pettis code*/
+.w3-container{
+  margin-top:5px;
+  margin-right:10px;
+  background-color:#8692A0;
+  box-shadow: 2px 2px 19px 0px rgba(0, 0, 0, 0.49);
+ width: 100%;
+  height:100%;
+}
+
+/* Progrss bar */
+.progress-bar {
+  background-color: #e9ecef;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  height: 25px;
+  
 }
 .progress {
-  height: 30px;
-  background-color: green;
+  background-color: #00b5e7;
+  text-align: center;
+  border-radius: 3px;
+  height:25px;
 }
-#overall-bar {
-  width: 1%;
+
+.blue {
+  background-color: rgba(2,204,186,.8);
+  height:25px;
 }
-#html-bar {
-  width: 1%;
+
+.orange {
+  background-color: #FF8C00;
+   height:25px;
 }
-#css-bar {
-  width: 1%;
+
+.yellow {
+  background-color: #e7e200;
+   height:25px;
 }
-#js-bar {
-  width: 1%;
+.green {
+  background-color: #609980;
+   height:25px;
 }
-#projects-bar {
-  width: 1%;
-} 
-/* end dummy bars */
+.pink{
+  background-color: #FFC0CB;
+   height:25px;
+}
