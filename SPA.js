@@ -207,14 +207,15 @@ $(function() {
     }
   });
   
-  $("input[id*=-]").on("click", function() {
-    $(
-      "#lesson" +
-        $(this)
-          .attr("id")
-          .charAt(0)
-    ).prop("checked", false);
-  });
+  // $("input[id*=-]").on("click", function() {
+  //   console.log("HHEEY!");
+  //   $(
+  //     "#lesson" +
+  //       $(this)
+  //         .attr("id")
+  //         .charAt(0)
+  //   ).prop("checked", false);
+  // });
 
   //@Brendan Pettis code//
   // Declarations
@@ -243,14 +244,27 @@ $(function() {
 
   // user's course progress
   let courseProgress = {
-    overall: {"completed": 0, "total": $("li input[data-category-type]").length},
-    html: {"completed": 0, "total": $("li input[data-category-type='html']").length},
-    css: {"completed": 0, "total": $("li input[data-category-type='css']").length},
-    javascript: {"completed": 0, "total": $("li input[data-category-type='javascript']").length},
-    jquery: {"completed": 0, "total": $("li input[data-category-type='jQuery']").length},
-    projects: {"completed": 0, "total": $("li input[data-category-type='project']").length}
+    overall: {
+      "completed": 0, 
+      "total": $(".exerciseList li input").length},
+    html: {
+      "completed": 0,
+      "total": $(".exerciseList li input[data-category-type='html']").length},
+    css: {
+      "completed": 0,
+       "total": $(".exerciseList li input[data-category-type='css']").length},
+    javascript: {
+       "completed": 0, 
+       "total": $(".exerciseList li input[data-category-type='javascript']").length},
+    jquery: {
+      "completed": 0, 
+      "total": $(".exerciseList li input[data-category-type='jQuery']").length},
+    projects: {
+      "completed": 0, 
+      "total": $(".exerciseList li input[data-category-type='project']").length}
   }
 
+  console.log(courseProgress["html"].total)
  
   
     
@@ -263,27 +277,56 @@ $(function() {
       data = SBP.Data.checkListMap;
       // console.log(data);
       for (item in data) {
-        // console.log(data[item]);
-        if(data[item].group == "html" && data[item].isChecked == true) {
+    
+        if (!(item.indexOf("lesson") > -1)) {
+          if(data[item].group == "html" && data[item].isChecked == true) {
             courseProgress.html["completed"] += 1;
             updateBar($htmlBar);
             // console.log(courseProgress.html["completed"])
         }
-        // else if(data[item].group == "html" && data[item].isChecked == false) {
-        //     courseProgress.html["completed"] -= 1;
-        //     updateBar($htmlBar);
-        //     console.log(courseProgress.html["completed"])
-        // }
+      
+        }
+        
         
       }
   }
 
+  $("input").change(function() {
+    console.log(SBP.Data.checkListMap)
+    updateProgress();
+    updateBar($htmlBar);
+    
+  });
 
+                      
+
+  $(".lessonTitle").children("input").change(function() {
+    console.log("current map",SBP.Data.checkListMap)
+    
+    
+    let lessonID = $(this).attr("id");
+    console.log("parent checkbox",SBP.Data.checkListMap[lessonID]);
+
+    if (!(SBP.Data.checkListMap[lessonID].isChecked == true)) {
+      $(this).siblings("ul").children("li").each(function(index,value) {
+        let exerciseID = $(this).children("input").attr("id")
+        console.log(exerciseID);
+        if (SBP.Data.checkListMap[exerciseID]) {
+          SBP.Data.checkListMap[exerciseID].isChecked = false;
+        }
+     
+        
+      })
+      console.log("current map",SBP.Data.checkListMap)
+    } 
+    updateProgress();
+    updateBar($htmlBar);
+  });
+
+  console.log(SBP.Data.checkListMap);
+  window.localStorage.clear();
   
 
-  // $("li input").change(function() {
-  //     updateProgress();
-  // })
 
   // fetches bar's category
   function getCategory(bar) {
@@ -334,27 +377,5 @@ $(function() {
   }
   updateAllBars(bars);
 
-  $(".lessonTitle").children("input").change(function() {
-    
-    let lessonID = $(this).attr("id");
-    console.log(lessonID);
-    console.log("HEYY",SBP.Data.checkListMap[lessonID]);
-
-    if (SBP.Data.checkListMap[lessonID].isChecked == true) {
-      console.log("HEEYY LISTEN", $(this))
-      $(this).siblings("ul").children("li").each(function(index,value) {
-        // WE HAVE TO GO DEEPER!
-        let exerciseID = $(this).attr("id");
-        console.log($(this));
-      })
-    }
-
-
-    // SBP.Data.checkListMap[$(this).attr("id")].isChecked = "cats";
  
-    
-  });
-
-  console.log(SBP.Data.checkListMap);
-window.localStorage.clear();
-                      
+  
