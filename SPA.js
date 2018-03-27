@@ -241,9 +241,9 @@ $(function() {
   ]
 
 
-
   // user's course progress
   let courseProgress = {
+    
     overall: {
       "completed": 0, 
       "total": $(".exerciseList li input").length},
@@ -264,101 +264,120 @@ $(function() {
       "total": $(".exerciseList li input[data-category-type='project']").length}
   }
 
-  console.log(courseProgress["html"].total)
+
  
   
-    
+  $("input").change(function() {
+
+    console.log(SBP.Data.checkListMap)
+    updateProgress("html");
+  });
+
 
   // update progress
-  function updateProgress() { 
-      
-      courseProgress.html["completed"] = 0;
-      // console.log("test",courseProgress["html"]["completed"]);
-      data = SBP.Data.checkListMap;
-      // console.log(data);
-      for (item in data) {
+  function updateProgress(course) { 
+
+    courseProgress[course]["completed"] = 0;
+    courseProgress["overall"]["completed"] = 0;
     
-        if (!(item.indexOf("lesson") > -1)) {
-          if(data[item].group == "html" && data[item].isChecked == true) {
-            courseProgress.html["completed"] += 1;
-            updateBar($htmlBar);
-            // console.log(courseProgress.html["completed"])
+    let data = SBP.Data.checkListMap;
+    let completed = [];
+
+    for (item in data) {      
+
+      if (item.indexOf("lesson") !== -1) { 
+
+        if(data[item].group == course && data[item].isChecked == true) {
+
+          courseProgress[course]["completed"] += $("#"+item).siblings("ul").children().length;
+          courseProgress["overall"]["completed"] += $("#"+item).siblings("ul").children().length;
+          completed.push(item.slice(-1));
+          updateAllBars(bars);
         }
+      }   
+    }
       
+    for (item in data) {
+
+      if (!(item.indexOf("lesson") > -1) && (completed.includes(item.slice(0,1))) !== true) {
+
+        if(data[item].group == course && data[item].isChecked == true) {
+
+          courseProgress[course]["completed"] += 1;
+          courseProgress["overall"]["completed"] += 1;
+          updateAllBars(bars); 
         }
-        
-        
       }
+      
+    }
+    updateAllBars(bars);
   }
 
-  $("input").change(function() {
-    console.log(SBP.Data.checkListMap)
-    updateProgress();
-    updateBar($htmlBar);
-    
-  });
-
-                      
-
+  
+                  
+  // set unchecked lesson's children to false
   $(".lessonTitle").children("input").change(function() {
-    console.log("current map",SBP.Data.checkListMap)
-    
-    
+
     let lessonID = $(this).attr("id");
-    console.log("parent checkbox",SBP.Data.checkListMap[lessonID]);
 
     if (!(SBP.Data.checkListMap[lessonID].isChecked == true)) {
+
       $(this).siblings("ul").children("li").each(function(index,value) {
-        let exerciseID = $(this).children("input").attr("id")
-        console.log(exerciseID);
+        let exerciseID = $(this).children("input").attr("id");
+
         if (SBP.Data.checkListMap[exerciseID]) {
           SBP.Data.checkListMap[exerciseID].isChecked = false;
-        }
-     
-        
-      })
-      console.log("current map",SBP.Data.checkListMap)
+        }       
+      });
     } 
-    updateProgress();
-    updateBar($htmlBar);
+    console.log("current map",SBP.Data.checkListMap)
+    updateProgress("html");
+    updateAllBars(bars);
   });
-
-  console.log(SBP.Data.checkListMap);
-  window.localStorage.clear();
-  
 
 
   // fetches bar's category
   function getCategory(bar) {
+
     switch(bar) {
       case $overallBar:
         return courseProgress["overall"];
       case $htmlBar:
         return courseProgress["html"];
       case $cssBar:
-        return courseProgress.css;
+        return courseProgress["css"];
       case $jsBar:
-        return courseProgress.javascript;
+        return courseProgress["javascript"];
       case $jqueryBar:
-        return courseProgress.jquery;
+        return courseProgress["jquery"];
       case $projectsBar:
-        return courseProgress.projects;
+        return courseProgress["projects"];
     }
   }
 
+
   // return progress of completed category
   function getPercent(category) { 
+
     let completed = category.completed;
     let total = category.total;
     return (completed / total) * 100;
   }
 
+
   function updateBar(bar) {
+
     let category = getCategory(bar);
     let width = 0; // bar progress
-    let time = setInterval(fillBar, 20); // set animation speed
+    let time = setInterval(fillBar, 0); // set animation speed
     let percent = getPercent(category); // get category percent
+    
+    // initial bar size
+    bar.css("width", width + "%") ;
+    bar.text(percent.toFixed(1) + "%");
+  
     function fillBar() {
+
       if (width >= percent) {
         clearInterval(time); // stop interval
       } 
@@ -370,12 +389,29 @@ $(function() {
     }
   }
   
+
   function updateAllBars(bars) {
-      for (let i = 0; i<bars.length; i++) {
-          updateBar(bars[i]);
-      }
+
+    for (let i = 0; i<bars.length; i++) {
+      updateBar(bars[i]);
+    }
   }
+
+
+  function updateAllProgress() {
+
+    for (course in courseProgress) {
+      updateProgress(course);
+    }
+  }
+
+  
+  
+  updateAllProgress();
   updateAllBars(bars);
+
+  // console.log("current map",SBP.Data.checkListMap)
+  // window.localStorage.clear();
 
  
   
